@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VID Driver Pulse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Bootstrap 5 minimal CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">VID DRIVER PULSE</h1>
+        <p class="text-center text-muted">Predictive Analytics for Driver Test Outcomes</p>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="predictionForm">
+                    <div class="mb-3">
+                        <label>Age</label>
+                        <input type="number" id="age" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Gender</label>
+                        <select id="gender" class="form-select">
+                            <option>Male</option><option>Female</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Test Station</label>
+                        <select id="test_station" class="form-select">
+                            <option>Harare</option><option>Bulawayo</option><option>Mutare</option><option>Gweru</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Vehicle Type</label>
+                        <select id="vehicle_type" class="form-select">
+                            <option>Small car</option><option>Light truck</option><option>Heavy vehicle</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Licence Type</label>
+                        <select id="licence_type" class="form-select">
+                            <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Test Manoeuvre</label>
+                        <select id="test_manoeuvre" class="form-select">
+                            <option>Parking</option><option>Three-point turn</option><option>Highway merge</option><option>Emergency stop</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Training Hours</label>
+                        <input type="number" id="training_hours" class="form-control" step="0.5" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Attempt Number</label>
+                        <input type="number" id="attempt_number" class="form-control" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Predict Outcome</button>
+                </form>
+
+                <div id="result" class="mt-4 text-center" style="display:none;">
+                    <h3>Prediction Result</h3>
+                    <div id="predictionText" class="display-4"></div>
+                    <p id="confidenceText" class="lead"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
